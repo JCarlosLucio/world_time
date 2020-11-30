@@ -7,6 +7,7 @@ class WorldTime {
   String time; // time in that location for UI
   String flag; // url to assets Flag Icon
   String url; // location url for API endpoint
+  bool isDayTime; // true or false if daytime or not
 
   // constructor for named parameters
   // used like this WorldTime instance = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
@@ -35,6 +36,7 @@ class WorldTime {
       now = now.add(Duration(hours: int.parse(offset)));
 
       // Set and format time w/intl package
+      isDayTime = now.hour > 6 && now.hour < 20;
       time = DateFormat.jm().format(now);
     } catch (error) {
       print('a wild error appeared: $error');
