@@ -40,7 +40,8 @@ class WorldTime {
       time = DateFormat.jm().format(now);
     } catch (error) {
       print('a wild error appeared: $error');
-      // avoids passing a null object to time
+      // avoids passing a null object to time/isDayTime
+      isDayTime = true;
       time = 'Could not get time data :(';
     }
   }
