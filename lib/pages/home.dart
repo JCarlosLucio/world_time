@@ -18,29 +18,33 @@ class _HomeState extends State<Home> {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
             child: Column(
-        children: <Widget>[
-            FlatButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/location');
-                },
-                icon: Icon(Icons.edit_location),
-                label: Text('Edit location')),
-            SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                FlatButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/location');
+                    },
+                    icon: Icon(Icons.edit_location),
+                    label: Text('Edit location')),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      data['location'],
+                      style: TextStyle(
+                        fontSize: 28.0,
+                        letterSpacing: 2.0,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 20.0),
                 Text(
-                  data['location'],
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    letterSpacing: 2.0,
-                  ),
-                )
+                    data['time'],
+                    style: TextStyle(fontSize: 66.0)),
               ],
-            )
-        ],
-      ),
-          )),
+            ),
+      )),
     );
   }
 }
