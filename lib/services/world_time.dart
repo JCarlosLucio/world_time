@@ -27,7 +27,7 @@ class WorldTime {
       String datetime = data['datetime'];
       // offset is the hours needed to reach the accurate time (+01:00)
       // used substring to get '01'
-      String offset = data['utc_offset'].substring(1, 3);
+      String offset = data['utc_offset'].substring(0, 3);
       // print(datetime);
       // print(offset);
 
