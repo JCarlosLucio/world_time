@@ -11,6 +11,12 @@ class _LoadingState extends State<Loading> {
   void setupWorldTime() async {
     WorldTime instance = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Europe/Berlin');
     await instance.getTime();
+    // replaces routes in routeStack with /home
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'time': instance.time,
+      'flag': instance.flag,
+    });
   }
 
   @override
