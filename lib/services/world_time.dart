@@ -1,5 +1,6 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String location; // location name for UI
@@ -33,8 +34,8 @@ class WorldTime {
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
 
-      // set time property
-      time = now.toString();
+      // Set and format time w/intl package
+      time = DateFormat.jm().format(now);
     } catch (error) {
       print('a wild error appeared: $error');
       // avoids passing a null object to time
