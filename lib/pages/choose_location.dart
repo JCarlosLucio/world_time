@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:world_time/services/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
+  const ChooseLocation({Key key}) : super(key: key);
   @override
   _ChooseLocationState createState() => _ChooseLocationState();
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-
   List<WorldTime> locations = [
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
     WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
@@ -37,7 +37,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
-        title: Text('Choose a location'),
+        title: const Text('Choose a location'),
         centerTitle: true,
         elevation: 0,
       ),
@@ -48,12 +48,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
             padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
             child: Card(
               child: ListTile(
-                onTap: (){
+                onTap: () {
                   updateTime(index);
                 },
                 title: Text(locations[index].location),
                 leading: CircleAvatar(
-                  backgroundImage: AssetImage('assets/${locations[index].flag}'),
+                  backgroundImage:
+                      AssetImage('assets/${locations[index].flag}'),
                 ),
               ),
             ),
